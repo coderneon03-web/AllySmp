@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic SEO -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AllyTech - Minecraft Ranks, Kits & Community</title>
+  <meta name="description" content="AllyTech is your home for exclusive Minecraft ranks, powerful kits, and a friendly, active community. Join us and level up your gameplay!">
+  <meta name="keywords" content="AllyTech, Minecraft ranks, Minecraft kits, Minecraft server, gaming community, Discord server">
+  <meta name="author" content="AllyTech">
+
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="AllyTech - Minecraft Ranks, Kits & Community">
+  <meta property="og:description" content="Exclusive ranks, kits, events, and a welcoming Minecraft community. Join AllyTech today!">
+  <meta property="og:image" content="https://example.com/preview.jpg">
+  <meta property="og:url" content="https://allytech.com">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ====== COLORS & BASE ====== */
+    :root {
+      --primary: #4285F4;
+      --light-bg: #F5F5F5;
+      --dark-bg: #202124;
+      --white: #ffffff;
+      --black: #18191A;
+      --text-dark: #202124;
+      --text-light: #B9BBBE;
+      --card-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      --transition: 0.3s ease;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      transition: background-color var(--transition), color var(--transition);
+      overflow-x: hidden;
+    }
+
+    body.dark-mode {
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+    }
+
+    /* ====== HEADER ====== */
+    header {
+      background-color: var(--white);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--card-shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background-color var(--transition);
+    }
+    body.dark-mode header { background-color: var(--black); }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      color: inherit;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+    nav a:hover { color: var(--primary); }
+
+    .toggle-btn {
+      margin-left: 2rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color var(--transition), transform 0.2s ease;
+    }
+    .toggle-btn:hover {
+      background-color: #3367d6;
+      transform: scale(1.05);
+    }
+
+    /* ====== HERO ====== */
+    .hero, .card {
+      background-color: var(--white);
+      transition: background-color var(--transition), color var(--transition), transform 0.3s ease;
+      box-shadow: var(--card-shadow);
+      border-radius: 10px;
+    }
+    body.dark-mode .hero,
+    body.dark-mode .card { background-color: var(--black); }
+
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards 0.3s;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    /* ====== SECTIONS ====== */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .card {
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .cta-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary);
+      color: var(--white);
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, background-color var(--transition);
+    }
+    .cta-button:hover {
+      background-color: #3367d6;
+      transform: translateY(-2px);
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--white);
+      box-shadow: var(--card-shadow);
+      margin-top: 3rem;
+      color: var(--text-light);
+      transition: background-color var(--transition), color var(--transition);
+    }
+    body.dark-mode footer { background-color: var(--black); }
+
+    /* ====== FORMS ====== */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    form input, form textarea {
+      padding: 0.75rem;
+      margin-top: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+    }
+    form input:focus, form textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+    form button {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.2s ease, background-color var(--transition);
+    }
+    form button:hover {
+      background-color: #3367d6;
+      transform: scale(1.03);
+    }
+
+    /* ====== STAFF SECTION ====== */
+    .staff-card ul {
+      list-style: none;
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .staff-card li {
+      margin: 0.3rem 0;
+      font-weight: 600;
+      transition: text-shadow 0.3s ease, transform 0.2s ease;
+      cursor: default;
+    }
+
+    .staff-card li:hover {
+      transform: scale(1.05);
+    }
+
+    .rank {
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    /* Rank + Name Colors + Glow Hover */
+    .rank.owner, .owner li { color: gold; }
+    .owner li:hover { text-shadow: 0 0 10px gold, 0 0 20px goldenrod; }
+
+    .rank.manager, .manager li { color: #4285F4; }
+    .manager li:hover { text-shadow: 0 0 10px #4285F4, 0 0 20px #3367d6; }
+
+    .rank.developer, .developer li { color: #00c853; }
+    .developer li:hover { text-shadow: 0 0 10px #00c853, 0 0 20px #009624; }
+
+    .rank.admin, .admin li { color: #e53935; }
+    .admin li:hover { text-shadow: 0 0 10px #e53935, 0 0 20px #b71c1c; }
+
+    .rank.mod, .mod li { color: #ff9800; }
+    .mod li:hover { text-shadow: 0 0 10px #ff9800, 0 0 20px #e65100; }
+
+    .rank.helper, .helper li { color: #9c27b0; }
+    .helper li:hover { text-shadow: 0 0 10px #9c27b0, 0 0 20px #6a1b9a; }
+
+    /* ====== ANIMATIONS ====== */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 768px) {
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.95rem;
+      }
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">AllyTech</div>
+    <nav aria-label="Main navigation">
+      <a href="#ranks">Ranks</a>
+      <a href="#kits">Kits</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#discord">Discord</a>
+      <a href="#support">Support</a>
+      <a href="#about">About</a>
+      <a href="#staff">Staff</a>
+      <button class="toggle-btn" onclick="toggleMode()">🌗 Mode</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Welcome to AllyTech</h1>
+      <p>Home of exclusive ranks, powerful kits, and a staff team like no other. Dive in and explore everything we offer!</p>
+      <a href="https://discord.gg/E6mryGpF" class="cta-button" target="_blank" rel="noopener">Join Our Discord</a>
+    </section>
+
+    <section id="ranks" class="fade-section">
+      <h2>🏅 Ranks</h2>
+      <div class="card">
+        <ul>
+          <li><strong>Blizz:</strong> Good perks + Discord role — <strong>$1.80</strong></li>
+          <li><strong>Frozen:</strong> Bonus kits + Discord role — <strong>$3.24</strong></li>
+          <li><strong>Mythic:</strong> Awesome Netherite kit + perks — <strong>$4.05</strong></li>
+          <li><strong>Aurora:</strong> Top-tier perks & recognition — <strong>$5.78</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="kits" class="fade-section">
+      <h2>🎁 Kits</h2>
+      <div class="card">
+        <ul>
+          <li><strong>Blizz:</strong> Everyday essentials</li>
+          <li><strong>Frozen:</strong> Construction resources</li>
+          <li><strong>Mythic:</strong> Combat gear</li>
+          <li><strong>Aurora:</strong> Premium rotating loot</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="benefits" class="fade-section">
+      <h2>✅ Benefits</h2>
+      <div class="card">
+        <ul>
+          <li>Active and friendly community</li>
+          <li>Exclusive Discord rewards</li>
+          <li>Fast, fair staff support</li>
+          <li>Events, giveaways, and more</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="discord" class="fade-section">
+      <h2>🤖 Discord Server</h2>
+      <div class="card">
+        <p>Join chat, get support, enter giveaways, or just vibe with our community of players and staff.</p>
+        <a href="https://discord.gg/E6mryGpF" class="cta-button" target="_blank" rel="noopener">Join on Discord</a>
+      </div>
+    </section>
+
+    <section id="support" class="fade-section">
+      <h2>📩 Support</h2>
+      <div class="card">
+        <p>Need help? We’ve got your back. Ping us in #support or fill out the feedback form below. We typically respond within a few hours.</p>
+      </div>
+    </section>
+
+    <section id="about" class="fade-section">
+      <h2>About Us</h2>
+      <div class="card">
+        <p>AllyTech is a vibrant server with a reputation for quality and creativity. Our <strong>talented staff</strong> go above and beyond to ensure a smooth, welcoming, and fair experience for every player.</p>
+      </div>
+    </section>
+
+    <section id="staff" class="fade-section">
+      <h2>👑 Our Staff</h2>
+      <div class="card staff-card">
+
+        <h3 class="rank owner">👑 Owners</h3>
+        <ul class="owner">
+          <li>Immortal3D</li>
+          <li>DARKKING17</li>
+        </ul>
+
+        <h3 class="rank manager">⭐ Manager</h3>
+        <ul class="manager">
+          <li>Slushy</li>
+        </ul>
+
+        <h3 class="rank developer">💻 Developers</h3>
+        <ul class="developer">
+          <li>LightxD</li>
+          <li>baggybrake</li>
+          <li>Black</li>
+          <li>IamFakeOp</li>
+        </ul>
+
+        <h3 class="rank admin">🛡️ Admins</h3>
+        <ul class="admin">
+          <li>Svly</li>
+          
+          <li>Mayan</li>
+        </ul>
+
+        <h3 class="rank mod">🔨 Moderators</h3>
+        <ul class="mod">
+          <li>Haise XD</li>
+          <li>Tibtrin</li>
+          <li>kai295</li>
+        </ul>
+
+        <h3 class="rank helper">🤝 Helpers</h3>
+        <ul class="helper">
+          <li>PhoebexD</li>
+          <li>TsgGamerz</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="feedback" class="fade-section">
+      <h2>📝 Feedback</h2>
+      <div class="card">
+        <form onsubmit="submitFeedback(event)">
+          <input type="text" placeholder="Your Name" required aria-label="Your Name" />
+          <input type="email" placeholder="Your Email" required aria-label="Your Email" />
+          <textarea rows="5" placeholder="Your Message..." required aria-label="Your Message"></textarea>
+          <button type="submit">Send Feedback</button>
+        </form>
+        <p id="feedback-message" style="margin-top: 1rem;"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 AllyTech. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function submitFeedback(event) {
+      event.preventDefault();
+      const message = document.getElementById('feedback-message');
+      message.style.color = "var(--primary)";
+      message.textContent = "Thank you for your feedback! We'll review it shortly.";
+      event.target.reset();
+    }
+
+    // Scroll animation
+    const fadeSections = document.querySelectorAll('.fade-section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    fadeSections.forEach(section => observer.observe(section));
+  </script>
+
+</body>
+</html>
+
