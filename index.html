@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic SEO -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AllyTech - Minecraft Ranks, Kits & Community</title>
   <meta name="description" content="AllyTech is your home for exclusive Minecraft ranks, powerful kits, and a friendly, active community. Join us and level up your gameplay!">
-  <meta name="keywords" content="AllyTech, Minecraft ranks, Minecraft kits, Minecraft server, gaming community, Discord server">
+  <meta name="keywords" content="AllyTech, Minecraft ranks, Minecraft kits, Minecraft server, gaming community, Discord server, buy minecraft ranks, buy minecraft kits, paypal, minecraft store">
   <meta name="author" content="AllyTech">
 
-  <!-- Open Graph for social sharing -->
   <meta property="og:title" content="AllyTech - Minecraft Ranks, Kits & Community">
   <meta property="og:description" content="Exclusive ranks, kits, events, and a welcoming Minecraft community. Join AllyTech today!">
   <meta property="og:image" content="https://example.com/preview.jpg">
   <meta property="og:url" content="https://allytech.com">
   <meta property="og:type" content="website">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD" data-sdk-integration-source="button-factory"></script>
 
   <style>
     /* ====== COLORS & BASE ====== */
@@ -153,6 +151,95 @@
       transform: translateY(-2px);
     }
 
+    /* Store grid layout */
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .store-item {
+      background-color: var(--white);
+      border-radius: 10px;
+      box-shadow: var(--card-shadow);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    body.dark-mode .store-item {
+      background-color: var(--black);
+    }
+    
+    .store-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .store-item h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .store-item .price {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+    
+    body.dark-mode .store-item .price {
+      color: var(--text-light);
+    }
+    
+    .store-item ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0 0 1rem 0;
+      text-align: left;
+    }
+    
+    .store-item li {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .store-item li:before {
+      content: '✓';
+      color: #00c853;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+    
+    .store-item .purchase-btn {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color var(--transition), transform 0.2s ease;
+    }
+    
+    .store-item .purchase-btn:hover {
+      background-color: #3367d6;
+      transform: scale(1.02);
+    }
+
+    /* PayPal button container */
+    .paypal-button-container {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
     /* ====== FOOTER ====== */
     footer {
       text-align: center;
@@ -264,6 +351,7 @@
       }
       .hero h1 { font-size: 2.2rem; }
       .hero p { font-size: 1rem; }
+      .store-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -272,8 +360,7 @@
   <header>
     <div class="logo">AllyTech</div>
     <nav aria-label="Main navigation">
-      <a href="#ranks">Ranks</a>
-      <a href="#kits">Kits</a>
+      <a href="#store">Store</a>
       <a href="#benefits">Benefits</a>
       <a href="#discord">Discord</a>
       <a href="#support">Support</a>
@@ -290,30 +377,38 @@
       <a href="https://discord.gg/E6mryGpF" class="cta-button" target="_blank" rel="noopener">Join Our Discord</a>
     </section>
 
-    <section id="ranks" class="fade-section">
-      <h2>🏅 Ranks</h2>
-      <div class="card">
-        <ul>
-          <li><strong>Blizz:</strong> Good perks + Discord role — <strong>$1.80</strong></li>
-          <li><strong>Frozen:</strong> Bonus kits + Discord role — <strong>$3.24</strong></li>
-          <li><strong>Mythic:</strong> Awesome Netherite kit + perks — <strong>$4.05</strong></li>
-          <li><strong>Aurora:</strong> Top-tier perks & recognition — <strong>$5.78</strong></li>
-        </ul>
+    <section id="store" class="fade-section">
+      <h2>🛒 AllyTech Store</h2>
+      <p>Upgrade your gameplay and support the server by purchasing exclusive ranks and powerful kits below!</p>
+      <div class="store-grid">
+        <div class="store-item">
+          <h3>🏅 Ranks</h3>
+          <p class="price">Starting at $1.80</p>
+          <p>Gain exclusive server perks and show off your status!</p>
+          <ul>
+            <li><strong>Blizz Rank:</strong> Good perks + Discord role — <strong>$1.80</strong></li>
+            <li><strong>Frozen Rank:</strong> Bonus kits + Discord role — <strong>$3.24</strong></li>
+            <li><strong>Mythic Rank:</strong> Awesome Netherite kit + perks — <strong>$4.05</strong></li>
+            <li><strong>Aurora Rank:</strong> Top-tier perks & recognition — <strong>$5.78</strong></li>
+          </ul>
+          <div id="paypal-button-container-ranks" class="paypal-button-container"></div>
+        </div>
+        
+        <div class="store-item">
+          <h3>🎁 Kits</h3>
+          <p class="price">Starting at $1.00</p>
+          <p>Get a one-time boost with powerful gear and resources!</p>
+          <ul>
+            <li><strong>Blizz Kit:</strong> Everyday essentials — <strong>$1.00</strong></li>
+            <li><strong>Frozen Kit:</strong> Construction resources — <strong>$1.50</strong></li>
+            <li><strong>Mythic Kit:</strong> Combat gear — <strong>$2.00</strong></li>
+            <li><strong>Aurora Kit:</strong> Premium rotating loot — <strong>$2.50</strong></li>
+          </ul>
+          <div id="paypal-button-container-kits" class="paypal-button-container"></div>
+        </div>
       </div>
     </section>
-
-    <section id="kits" class="fade-section">
-      <h2>🎁 Kits</h2>
-      <div class="card">
-        <ul>
-          <li><strong>Blizz:</strong> Everyday essentials</li>
-          <li><strong>Frozen:</strong> Construction resources</li>
-          <li><strong>Mythic:</strong> Combat gear</li>
-          <li><strong>Aurora:</strong> Premium rotating loot</li>
-        </ul>
-      </div>
-    </section>
-
+    
     <section id="benefits" class="fade-section">
       <h2>✅ Benefits</h2>
       <div class="card">
@@ -434,8 +529,79 @@
       });
     }, { threshold: 0.2 });
     fadeSections.forEach(section => observer.observe(section));
+
+    // Initialize PayPal Buttons
+    function initPayPalButtons() {
+        paypal.Buttons({
+            style: {
+                shape: 'rect',
+                color: 'blue',
+                layout: 'vertical',
+                label: 'paypal',
+            },
+            
+            // Set up the transaction details
+            createOrder: function(data, actions) {
+                // This is where you'd determine the price based on what the user selected.
+                // For this example, we'll use a fixed price for each button.
+                let price = 0;
+                if (data.container.id === 'paypal-button-container-ranks') {
+                    // You would have a dynamic selection for different ranks here
+                    price = 5.78; // Example: Default to the highest rank price
+                } else if (data.container.id === 'paypal-button-container-kits') {
+                    // You would have a dynamic selection for different kits here
+                    price = 2.50; // Example: Default to the highest kit price
+                }
+
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: price,
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    const transaction = orderData.purchase_units[0].payments.captures[0];
+                    alert('Transaction ' + transaction.status + ': ' + transaction.id + '\n\nYour payment has been successfully processed! Check your in-game items shortly.');
+                });
+            }
+        }).render('#paypal-button-container-ranks');
+
+        paypal.Buttons({
+            style: {
+                shape: 'rect',
+                color: 'blue',
+                layout: 'vertical',
+                label: 'paypal',
+            },
+            createOrder: function(data, actions) {
+                let price = 2.50; // Example: Default kit price
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: price,
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    const transaction = orderData.purchase_units[0].payments.captures[0];
+                    alert('Transaction ' + transaction.status + ': ' + transaction.id + '\n\nYour payment has been successfully processed! Check your in-game items shortly.');
+                });
+            }
+        }).render('#paypal-button-container-kits');
+    }
+    
+    // Call the function to render the PayPal buttons
+    initPayPalButtons();
   </script>
 
 </body>
 </html>
-
